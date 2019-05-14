@@ -1,12 +1,10 @@
 const UserModel = require('../db/models/userModel')
 
 returnAllUsers = () => {
-    UserModel.find()
-        .then(users => {
-            res.jason(users)
-        })
+   return UserModel.find()
 }
 
-module.exports = {
 
+module.exports = {
+    returnAllUsers,
 }

@@ -1,13 +1,22 @@
-const UserModel = require('./models/userModel')
+const User= require('./models/userModel.js')
 
-UserModel.deleteMany()
+User.deleteMany()
     .then(() => {
-        const robocop = {
+        User.create({
             userName: "RoboCop",
             password: "DeadOrAliveYoureComingWithMe",
             email: "robocop@ocp.org",
             firstName: "Alex",
             lastName: "Murphy"
-        }
-        return robocop.save()
+        })
+        .then(() => {
+            User.create({
+                userName: "Bender",
+                password: "BiteMyShinyMetalAss",
+                email: "bender@planetexpress.com",
+                firstName: "Bender",
+                lastName: "Rodriguez" 
+            })
+        })
+        
     })
