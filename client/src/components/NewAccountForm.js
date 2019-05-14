@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
-import './SignInForm.css'
-import {userSignInDetails} from '../ajax.js'
+import './NewAccountForm.css'
 
-class SignInForm extends Component {
+class NewAccountForm extends Component {
     state = {
-        user: {
-        userName: "",
-        password: ""
+        User: {
+            userName: '',
+            password: '',
+            email: '',
+            firstName: '',
+            lastName: '',
         }
     }
 
@@ -23,13 +25,8 @@ class SignInForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        const userName = this.state.user.userName
-        // const password = this.state.user.password
-
-        userSignInDetails(this.state.user)
+        console.log(this.state.user)
     }
-
 
     render(){
         return(
@@ -38,6 +35,18 @@ class SignInForm extends Component {
                 <div className="form-group">
                     <label>User Name</label>
                     <input type="text" name="userName" placeholder="User Name" onChange={this.handleInput} />
+                </div>
+                <div className="form-group-not-required">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" placeholder="First Name" onChange={this.handleInput} />
+                </div>
+                <div className="form-group-not-required">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleInput} />
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="user@email.com" onChange={this.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
@@ -50,4 +59,4 @@ class SignInForm extends Component {
     }
 }
 
-export default SignInForm
+export default NewAccountForm;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './Login.css';
+import NewAccountForm from './NewAccountForm.js'
 import SignInForm from './SignInForm.js'
 
 class Login extends Component {
@@ -28,7 +29,7 @@ class Login extends Component {
                   this.state.showSignIn ? 
                     <SignInForm />
                   :
-                  <h1>New Account</h1> 
+                  <NewAccountForm/>
                 }
                 </div>
             </div>

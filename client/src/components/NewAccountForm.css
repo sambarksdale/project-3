@@ -1,0 +1,17 @@
+.form-group-not-required {
+    font-size: 15px;
+    margin: 10px auto;
+    width: 50%;
+    display: flex;
+    align-content: center;
+    flex-direction: column
+}
+.form-group-not-required label {
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+.form-group-not-required input {
+    height: 20px;
+    font-size: 15px;
+}
