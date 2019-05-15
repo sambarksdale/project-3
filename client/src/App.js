@@ -10,8 +10,8 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path="/login" component={Login}/>
-          {/* <Login /> */}
+          {/* <Route exact path="/login" component={Login}/> */}
+          <Login />
         </Switch>
       </div>
     </Router>
