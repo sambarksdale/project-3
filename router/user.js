@@ -3,7 +3,7 @@ const router = express.Router();
 const userApi = require('../api/userApi.js')
 
 router
-    .route('/users')
+.route('/users')
     .get((req,res) => {
         userApi.returnAllUsers()
             .then(users => {
