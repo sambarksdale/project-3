@@ -15,7 +15,7 @@
     "node": "10.13.0"
   },
   "scripts": {
-     "start": "nodemon index.js",
+     "start": "node index.js",
      "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\"",
      "test": "echo \"Error: no test specified\" && exit 1",
      "postinstall": "cd client && npm i && npm run build"
