@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './NewAccountForm.css'
+import {createNewUser} from '../ajax.js'
 
 class NewAccountForm extends Component {
     state = {
@@ -25,7 +26,7 @@ class NewAccountForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.user)
+        createNewUser(this.state.user)
     }
 
     render(){

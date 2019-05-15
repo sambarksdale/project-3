@@ -8,8 +8,13 @@ returnUserBySignIn = (userName, password) => {
     return UserModel.findOne({userName: userName, password: password})
 }
 
+newUser = (userData) => {
+    return UserModel.create(userData)
+}
+
 
 module.exports = {
     returnAllUsers,
-    returnUserBySignIn
+    returnUserBySignIn,
+    newUser
 }
