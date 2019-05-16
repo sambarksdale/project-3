@@ -37,14 +37,6 @@ class NewAccountForm extends Component {
                     <label>User Name</label>
                     <input type="text" name="userName" placeholder="User Name" onChange={this.handleInput} />
                 </div>
-                <div className="form-group-not-required">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" placeholder="First Name" onChange={this.handleInput} />
-                </div>
-                <div className="form-group-not-required">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleInput} />
-                </div>
                 <div className="form-group">
                     <label>Email</label>
                     <input type="text" name="email" placeholder="user@email.com" onChange={this.handleInput} />

@@ -14,9 +14,16 @@
 }
 
 .login-button:first-child {
+    line-height: 40px;
     background: blue;
+}
+.login-button:first-child:hover {
+    background: darkblue; 
 }
 
 .login-button:last-child {
     background: red;
+}
+.login-button:last-child:hover {
+    background: darkred;
 }

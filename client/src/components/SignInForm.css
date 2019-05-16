@@ -1,3 +1,9 @@
+.signin-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
 .form-group {
     font-size: 20px;
     margin: 10px auto;
@@ -17,11 +23,15 @@
 }
 
 .submit-button {
-    margin-bottom: 10px;
-    width: 10%;
+    text-align: center;
+    width: 100%;
     height: 40px;
-    border-radius: 10%;
     font-size: 20px;
-    background-color: blue;
+    line-height: 40px;
+    font-weight: bolder;
+    background: blue;
     color: white;
+}
+.submit-button:hover {
+    background: darkblue;
 }

@@ -6,12 +6,7 @@ class Navbar extends Component {
     render(){
         return(
             <div className="navbar">
-                <div className="link">
-                <Link to="/home">Home</Link>
-                </div>
-                <div className="link">
-                <Link to="/login">Login</Link>
-                </div>
+                <h1>This Is The NavBar</h1>
             </div>
         )
     }
