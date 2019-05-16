@@ -18,7 +18,7 @@ router
             .then(() => {
                 userApi.returnUserBySignIn(userName,password)
                     .then(user => {
-                        console.log(user)
+                        res.json(user)
             })
         })
     })

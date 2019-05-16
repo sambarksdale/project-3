@@ -6,7 +6,8 @@ const User = new Schema({
     password: String,
     email: String,
     firstName: String,
-    lastName: String
+    lastName: String,
+    image: String
 })
 
 

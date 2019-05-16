@@ -35,17 +35,17 @@ class NewAccountForm extends Component {
             <form>
                 <div className="form-group">
                     <label>User Name</label>
-                    <input type="text" name="userName" placeholder="User Name" onChange={this.handleInput} />
+                    <input type="text" name="userName" placeholder="User Name" onChange={this.props.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" placeholder="user@email.com" onChange={this.handleInput} />
+                    <input type="text" name="email" placeholder="user@email.com" onChange={this.props.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
+                    <input type="text" name="password" placeholder="password" onChange={this.props.handleInput} />
                 </div>
-                <input className="submit-button" type="submit" value="Submit" onClick={this.handleSubmit} />
+                <input className="submit-button" type="submit" value="Submit" onClick={this.props.handleNewUser} />
             </form>
         </div> 
         )

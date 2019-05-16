@@ -29,5 +29,5 @@
   grid-column-end: end;
   grid-row-start: 3;
   grid-row-end: 10;
-  border: 3px solid black;
+  /* border: 3px solid black; */
 }

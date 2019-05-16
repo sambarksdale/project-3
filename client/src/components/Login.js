@@ -15,6 +15,7 @@ class Login extends Component {
     toggleCreateAccount = () => {
         this.setState({showSignIn: false})
     }
+    
 
 
     render(){
@@ -27,9 +28,9 @@ class Login extends Component {
                 <div className="form-container">
                 {
                   this.state.showSignIn ? 
-                    <SignInForm />
+                    <SignInForm handleInput={this.props.handleInput} authenticateUser={this.props.authenticateUser}/>
                   :
-                  <NewAccountForm/>
+                    <NewAccountForm handleInput={this.props.handleInput} handleNewUser={this.props.handleNewUser}/>
                 }
                 </div>
             </div>

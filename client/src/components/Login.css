@@ -15,15 +15,19 @@
 
 .login-button:first-child {
     line-height: 40px;
-    background: blue;
+    background: #3b5998;
 }
 .login-button:first-child:hover {
-    background: darkblue; 
+    background: darkblue;
+    cursor: pointer; 
 }
 
 .login-button:last-child {
-    background: red;
+    background: rgba(255, 0, 0, 0.774);
 }
 .login-button:last-child:hover {
     background: darkred;
+    cursor: pointer;
 }
+
+

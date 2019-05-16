@@ -29,9 +29,10 @@
     font-size: 20px;
     line-height: 40px;
     font-weight: bolder;
-    background: blue;
+    background: #3b5998;
     color: white;
 }
 .submit-button:hover {
     background: darkblue;
+    cursor: pointer;
 }
