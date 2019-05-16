@@ -7,7 +7,7 @@ export function userSignInDetails(user){
 
 export function createNewUser(user){
     return axios.post('/users', user)
-        .then(user => console.log(user.data))
+        .then(user => user.data)
 }
 
 export function getThreadsOnMount(){

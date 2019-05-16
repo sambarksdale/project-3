@@ -1,15 +1,12 @@
 import React, {Component} from 'react'
 import './NewAccountForm.css'
-import {createNewUser} from '../ajax.js'
 
 class NewAccountForm extends Component {
     state = {
-        User: {
+        user: {
             userName: '',
             password: '',
             email: '',
-            firstName: '',
-            lastName: '',
         }
     }
 
@@ -26,7 +23,8 @@ class NewAccountForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        createNewUser(this.state.user)
+        // createNewUser(this.state.user)
+        this.props.handleNewUser(this.state.user)
     }
 
     render(){
@@ -35,17 +33,17 @@ class NewAccountForm extends Component {
             <form>
                 <div className="form-group">
                     <label>User Name</label>
-                    <input type="text" name="userName" placeholder="User Name" onChange={this.props.handleInput} />
+                    <input type="text" name="userName" placeholder="User Name" onChange={this.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" placeholder="user@email.com" onChange={this.props.handleInput} />
+                    <input type="text" name="email" placeholder="user@email.com" onChange={this.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="password" onChange={this.props.handleInput} />
+                    <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
                 </div>
-                <input className="submit-button" type="submit" value="Submit" onClick={this.props.handleNewUser} />
+                <input className="submit-button" type="submit" value="Submit" onClick={this.handleSubmit} />
             </form>
         </div> 
         )

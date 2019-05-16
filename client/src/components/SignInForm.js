@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import './SignInForm.css'
-import {userSignInDetails} from '../ajax.js'
 
 class SignInForm extends Component {
     state = {
@@ -10,21 +9,20 @@ class SignInForm extends Component {
         }
     }
 
-    // handleInput = (event) => {
-    //     const attributeName = event.target.name
-    //     const attributeValue = event.target.value
+    handleInput = (event) => {
+        const attributeName = event.target.name
+        const attributeValue = event.target.value
 
-    //     const newUser = { ...this.state.user }
-    //     newUser[attributeName] = attributeValue
+        const newUser = { ...this.state.user }
+        newUser[attributeName] = attributeValue
 
-    //     this.setState({ user: newUser }, function(){
-    //         console.log(this.state.user)
-    //     })
-    // }
+        this.setState({ user: newUser }, function(){
+        })
+    }
 
-    handleSubmit = (event) => {
+    handleUserSignIn = (event) => {
         event.preventDefault();
-        userSignInDetails(this.state.user)
+        this.props.authenticateUser(this.state.user)
     }
 
     
@@ -36,13 +34,13 @@ class SignInForm extends Component {
             <form className="signin-form">
                 <div className="form-group">
                     <label>User Name</label>
-                    <input type="text" name="userName" placeholder="User Name" onChange={this.props.handleInput} />
+                    <input type="text" name="userName" placeholder="User Name" onChange={this.handleInput} />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="password" onChange={this.props.handleInput} />
+                    <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
                 </div>
-                <div className="submit-button" onClick={this.props.authenticateUser}>Submit</div>
+                <div className="submit-button" onClick={this.handleUserSignIn}>Submit</div>
             </form>
         </div> 
         )

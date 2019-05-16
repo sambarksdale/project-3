@@ -1,0 +1,26 @@
+.user-module-container {
+    text-align: center;
+    border: 3px solid black
+}
+.user-image {
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+}
+img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid hotpink;
+}
+
+.edit-profile {
+    margin: 2px;
+    font-size: 20px;
+    width: 50%;
+    height: 40px;
+    text-decoration: none;
+    color: White;
+    font-weight: bolder;
+    background: #3b5998;
+}

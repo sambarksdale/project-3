@@ -8,7 +8,8 @@ UserModel.deleteMany()
             password: "DeadOrAliveYoureComingWithMe",
             email: "robocop@ocp.org",
             firstName: "Alex",
-            lastName: "Murphy"
+            lastName: "Murphy",
+            image: "https://imgur.com/mZ8X2PC.jpg"
         })
         .then(() => {
             UserModel.create({
@@ -16,7 +17,8 @@ UserModel.deleteMany()
                 password: "BiteMyShinyMetalAss",
                 email: "bender@planetexpress.com",
                 firstName: "Bender",
-                lastName: "Rodriguez" 
+                lastName: "Rodriguez",
+                image:"https://imgur.com/pRfUXHn.jpg"  
             })
         })
         
