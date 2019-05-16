@@ -1,8 +1,9 @@
-const User= require('./models/userModel.js')
+const UserModel= require('./models/userModel.js')
+const ThreadModel = require('./models/threadModel.js')
 
-User.deleteMany()
+UserModel.deleteMany()
     .then(() => {
-        User.create({
+        UserModel.create({
             userName: "RoboCop",
             password: "DeadOrAliveYoureComingWithMe",
             email: "robocop@ocp.org",
@@ -10,7 +11,7 @@ User.deleteMany()
             lastName: "Murphy"
         })
         .then(() => {
-            User.create({
+            UserModel.create({
                 userName: "Bender",
                 password: "BiteMyShinyMetalAss",
                 email: "bender@planetexpress.com",
@@ -20,3 +21,17 @@ User.deleteMany()
         })
         
     })
+
+ThreadModel.deleteMany()
+    .then(() => {
+        ThreadModel.create({
+            name: "Is It A Sandwich",
+            date: new Date()
+        })
+    })
+    .then(() => {
+        ThreadModel.create({
+            name: "Is Cereal Soup",
+            date: new Date()
+        })
+    })      
