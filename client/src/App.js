@@ -7,6 +7,7 @@ import Navbar from './components/Navbar.js'
 import UserModule from './components/UserModule.js'
 import UserProfile from './components/UserProfile.js'
 import {getThreadsOnMount,createNewUser,userSignInDetails} from './ajax.js'
+import NewThread from './components/NewThread';
 
 class App extends Component {
 
@@ -22,7 +23,8 @@ class App extends Component {
     },
     userUpdates: {},
     threads: [],
-    loggedIn: true
+    loggedIn: false,
+    newThread: false,
   }
 
   componentDidMount(){
@@ -79,10 +81,23 @@ class App extends Component {
     event.preventDefault();
     console.log(this.state.userUpdates)
   }
+
+  showNewThreadContainer = () => {
+    this.setState({newThread: true})
+  }
+
+  hideNewThreadContainer = () => {
+    this.setState({newThread: false})
+  }
     
   render(){
 
-    const MessageBoard = () => (<HomeBoard threads={this.state.threads}/>)
+    const MessageBoard = () => (<HomeBoard 
+      threads={this.state.threads}
+      show={this.showNewThreadContainer}
+      hide={this.hideNewThreadContainer}
+      newThread={this.state.newThread}
+    />)
 
     const SignInUp = () => (<Login 
       handleInput={this.handleInput}
@@ -101,6 +116,7 @@ class App extends Component {
         <div className="App">
           <div className="header-container">
             <Navbar />
+
           </div>
           <div className="user-container">
             {

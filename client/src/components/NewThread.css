@@ -1,0 +1,27 @@
+.new-thread-container {
+    border: 3px solid hotpink;
+    margin-bottom: 5px;
+}
+.new-thread-container label {
+    display: block;
+}
+.new-thread-container textarea {
+    width: 90%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+}
+
+.button {
+    text-align: center;
+    margin: 2px;
+    font-size: 20px;
+    width: 20%;
+    height: 40px;
+    text-decoration: none;
+    color: White;
+    font-weight: bolder;
+    background: #3b5998;
+}
