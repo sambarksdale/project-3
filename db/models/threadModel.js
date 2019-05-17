@@ -4,8 +4,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const Thread = new Schema({
     name: String,
-    date: String,
+    body: String,
+    date: Date,
     createdBy: ObjectId,
+    userName: String
 })
 
 

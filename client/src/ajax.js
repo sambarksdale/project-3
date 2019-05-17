@@ -10,8 +10,13 @@ export function createNewUser(user){
         .then(user => user.data)
 }
 
-export function getThreadsOnMount(){
-    return axios.get('/boards')
+export function getThreads(){
+    return axios.get('/threads')
         .then(threads => threads.data)
+}
+
+export function createThread(thread){
+    console.log(thread)
+    return axios.post('/threads', thread)
 }
 

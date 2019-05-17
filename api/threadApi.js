@@ -4,6 +4,11 @@ reurnAllThreads = () => {
     return ThreadModel.find()
 }
 
+newThread = (data) => {
+    return ThreadModel.create(data)
+}
+
 module.exports = {
-    reurnAllThreads
+    reurnAllThreads,
+    newThread
 }

@@ -25,3 +25,6 @@
     font-weight: bolder;
     background: #3b5998;
 }
+.button:hover {
+    cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import './HomeBoard.css';
 import NewThread from './NewThread'
 
@@ -15,15 +16,15 @@ class HomeBoard extends Component {
                 </div>
                 <div>
                     {
-                     this.props.newThread ? <NewThread hide={this.props.hide}/> : null 
+                     this.props.newThread ? <NewThread hide={this.props.hide} user={this.props.user} handleNewThread={this.props.handleNewThread}/> : null 
                     }
                 </div>
                 {
                     this.props.threads.map((thread,index) => {
                         return(
                             <div key={index} className="thread">  
-                                <div>posted by:</div> 
-                                <div>{thread.name}</div>
+                                <div>posted by: {thread.userName}</div> 
+                                <Link to='/:id'>{thread.name}</Link>
                                 <div>{thread.date}</div>                                
                             </div>  
                         ) 

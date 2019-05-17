@@ -6,15 +6,14 @@ import Login from './components/Login.js'
 import Navbar from './components/Navbar.js'
 import UserModule from './components/UserModule.js'
 import UserProfile from './components/UserProfile.js'
-import {getThreadsOnMount,createNewUser,userSignInDetails} from './ajax.js'
-import NewThread from './components/NewThread';
+import {getThreads,createNewUser,userSignInDetails,createThread} from './ajax.js'
 
 class App extends Component {
 
   state = {
     user: {
-      _id: "",
-      userName: "",
+      _id: "5cdd7e41427c48fbc9f2524b",
+      userName: "temp user",
       password: "",
       email: "",
       firstName: "",
@@ -28,7 +27,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    getThreadsOnMount()
+    getThreads()
       .then(threads => {
         this.setState({threads: threads})
       })
@@ -89,14 +88,27 @@ class App extends Component {
   hideNewThreadContainer = () => {
     this.setState({newThread: false})
   }
+
+  handleNewThread = (thread) => {
+    createThread(thread)
+      .then(() => {
+        getThreads()
+          .then(threads => {
+            console.log(threads)
+            this.setState({threads: threads,newThread: false})
+          })
+      })
+  }
     
   render(){
 
     const MessageBoard = () => (<HomeBoard 
       threads={this.state.threads}
+      user={this.state.user}
       show={this.showNewThreadContainer}
       hide={this.hideNewThreadContainer}
       newThread={this.state.newThread}
+      handleNewThread={this.handleNewThread}
     />)
 
     const SignInUp = () => (<Login 

@@ -28,12 +28,18 @@ ThreadModel.deleteMany()
     .then(() => {
         ThreadModel.create({
             name: "Is It A Sandwich",
-            date: new Date()
+            body: "what really makes something a sandwich",
+            date: new Date(),
+            createdBy: "5cdd7e41427c48fbc9f2524b",
+            userName: "Bender"
         })
     })
     .then(() => {
         ThreadModel.create({
             name: "Is Cereal Soup",
-            date: new Date()
+            body: "i dpn't think mik makes soup",
+            date: new Date(),
+            createdBy: "5cdd7e41427c48fbc9f2524b",
+            userName: "Bender"
         })
     })      

@@ -28,3 +28,7 @@
 .new-thread-button:hover {
     cursor: pointer;
 }
+
+textarea {
+    width: 90%;
+}
