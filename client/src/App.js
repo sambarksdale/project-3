@@ -18,10 +18,11 @@ class App extends Component {
       email: "",
       firstName: "",
       lastName: "",
-      image: ""
+      image: "https://imgur.com/fz9es8e.jpg"
     },
+    userUpdates: {},
     threads: [],
-    loggedIn: false
+    loggedIn: true
   }
 
   componentDidMount(){
@@ -31,22 +32,23 @@ class App extends Component {
       })
   }
 
-  // handleInput = (event) => {
-  //   const attributeName = event.target.name
-  //   const attributeValue = event.target.value
+  handleInput = (event) => {
+    const attributeName = event.target.name
+    const attributeValue = event.target.value
 
-  //   const newUser = { ...this.state.user }
-  //   newUser[attributeName] = attributeValue
+    const newUser = { ...this.state.userUpdates }
+    newUser[attributeName] = attributeValue
 
-  //   this.setState({ user: newUser }, function(){
-  //   })
-  // }
+    
+    this.setState({ userUpdates: newUser }, function(){
+    })
+  }
 
   authenticateUser = (data) => {
     userSignInDetails(data)
       .then(user => {
-        this.setState({user: user}, function(){
-          this.setState({loggedIn: true})
+        this.setState({loggedIn: true, user: user, userUpdates: user}, function(){
+          console.log(this.state.userUpdates)
         })
       })
   }
@@ -55,7 +57,7 @@ class App extends Component {
   handleNewUser = (data) => {
     createNewUser(data)
       .then(user => {
-        this.setState({loggedIn: true, user: user})
+        this.setState({loggedIn: true, user: user, userUpdates: user})
       })
   }
 
@@ -70,13 +72,12 @@ class App extends Component {
     }
 
     this.setState({user: userReset, loggedIn: false}, function(){
-      console.log(this.state.user)
     })
   }
 
-  handleUserUpdate = (data) => {
-    
-    console.log(data)
+  handleUserUpdate = (event) => { 
+    event.preventDefault();
+    console.log(this.state.userUpdates)
   }
     
   render(){
@@ -90,8 +91,9 @@ class App extends Component {
     />)
 
     const Profile = () => (<UserProfile
-      user={this.state.user}
+      user={this.state.userUpdates}
       handleUserUpdate={this.handleUserUpdate}
+      handleInput={this.handleInput}
     />)
     
     return (
