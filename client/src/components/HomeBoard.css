@@ -29,6 +29,15 @@
     cursor: pointer;
 }
 
+a {
+    font-size: 20px;
+    color: #3b5998;
+    font-weight: bolder;
+}
+
 textarea {
     width: 90%;
+}
+p {
+    white-space: pre-line 
 }

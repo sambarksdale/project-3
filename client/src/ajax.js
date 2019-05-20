@@ -10,13 +10,27 @@ export function createNewUser(user){
         .then(user => user.data)
 }
 
+export function editUser(userData){
+    return axios.put('/users', userData)
+        .then(updatedUser => updatedUser.data)
+}
+
+export function deleteUser(id){
+    console.log("ajax user delete")
+    return axios.delete(`/users/delete/${id}`)
+}
+
 export function getThreads(){
     return axios.get('/threads')
         .then(threads => threads.data)
 }
 
 export function createThread(thread){
-    console.log(thread)
     return axios.post('/threads', thread)
+}
+
+export function getThread(id){
+    return axios.post('/thread/:id',id)
+        .then(thread => thread.data)
 }
 

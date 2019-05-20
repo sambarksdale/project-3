@@ -24,15 +24,14 @@ class NewThread extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-       let newThread = {...this.state.thread}
+        let newThread = {...this.state.thread}
        
-       newThread.createdBy= this.props.user._id
-       newThread.userName= this.props.user.userName
-       newThread.body.replace(/\n/g,"<br>")
-       console.log(newThread.body)
-       this.setState({body: newThread.body})
+        newThread.createdBy= this.props.user._id
+        newThread.userName= this.props.user.userName
+        console.log(newThread)
+        this.setState({body: newThread.body})
 
-       this.props.handleNewThread(newThread);
+        this.props.handleNewThread(newThread);
     }
     
     render(){

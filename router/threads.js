@@ -14,7 +14,17 @@ router
         console.log(req.body)
         threadApi.newThread(req.body)
             .then(() => {
-                res.status(200).send("posted")
+                res.status(201).send("posted")
+            })
+    })
+
+router
+    .route('/thread/:id')
+    .post((req,res) => {
+        threadApi.getThreadById(req.body._id)
+            .then(thread => {
+                console.log(thread)
+                res.json(thread)
             })
     })
 

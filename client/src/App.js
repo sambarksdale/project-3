@@ -1,24 +1,25 @@
 import React, {Component} from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {getThreads,createNewUser,userSignInDetails,createThread,editUser,deleteUser} from './ajax.js'
+import './App.css';
 import HomeBoard from './components/HomeBoard.js'
 import Login from './components/Login.js'
 import Navbar from './components/Navbar.js'
+import Thread from './components/Thread.js'
 import UserModule from './components/UserModule.js'
 import UserProfile from './components/UserProfile.js'
-import {getThreads,createNewUser,userSignInDetails,createThread} from './ajax.js'
 
 class App extends Component {
 
   state = {
     user: {
-      _id: "5cdd7e41427c48fbc9f2524b",
-      userName: "temp user",
+      _id: "",
+      userName: "",
       password: "",
       email: "",
       firstName: "",
       lastName: "",
-      image: "https://imgur.com/fz9es8e.jpg"
+      image: ""
     },
     userUpdates: {},
     threads: [],
@@ -49,7 +50,6 @@ class App extends Component {
     userSignInDetails(data)
       .then(user => {
         this.setState({loggedIn: true, user: user, userUpdates: user}, function(){
-          console.log(this.state.userUpdates)
         })
       })
   }
@@ -78,7 +78,14 @@ class App extends Component {
 
   handleUserUpdate = (event) => { 
     event.preventDefault();
-    console.log(this.state.userUpdates)
+    editUser(this.state.userUpdates)
+      .then(updatedUser => {
+        this.setState({user: updatedUser})
+      })
+  }
+
+  handleDeleteUser = () => {
+    deleteUser(this.state.user._id)
   }
 
   showNewThreadContainer = () => {
@@ -94,7 +101,6 @@ class App extends Component {
       .then(() => {
         getThreads()
           .then(threads => {
-            console.log(threads)
             this.setState({threads: threads,newThread: false})
           })
       })
@@ -121,6 +127,7 @@ class App extends Component {
       user={this.state.userUpdates}
       handleUserUpdate={this.handleUserUpdate}
       handleInput={this.handleInput}
+      handleDeleteUser={this.handleDeleteUser}
     />)
     
     return (
@@ -139,6 +146,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={MessageBoard} />
               <Route exact path="/user-profile" render={Profile} />
+              <Route path="/:id" component={Thread} />
             </Switch>
           </div>
         </div>

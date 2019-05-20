@@ -7,7 +7,6 @@ router
     .post((req,res) => {
         const userName = req.body.userName
         const password = req.body.password
-
         userApi.returnUserBySignIn(userName,password)
             .then(user => {
                 res.json(user)
