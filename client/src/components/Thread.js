@@ -15,7 +15,9 @@ class Thread extends Component {
     }
     
     componentDidMount(){
-        let id = {_id: this.props.match.params.id}
+        // console.log(this.props.props)
+        // console.log(this.props.props.match.params.id)
+        let id = {_id: this.props.thread.match.params.id}
         getThread(id)
           .then(thread => {
             console.log(thread.body)    
@@ -27,6 +29,7 @@ class Thread extends Component {
         return(
             <div>
             <h1>{this.state.thread.name}</h1>
+            <h1>{this.props.user.userName}</h1>
             </div>
         )
     }

@@ -12,7 +12,11 @@ class HomeBoard extends Component {
                         <input type="text" placeholder="search"/>
                         <input type="button" value="search"/>
                     </div>
+                    { this.props.loggedIn ?
                     <button className="new-thread-button" onClick={this.props.show}>+ New Thread</button>
+                    :
+                    null
+                    }
                 </div>
                 <div>
                     {
@@ -23,7 +27,12 @@ class HomeBoard extends Component {
                     this.props.threads.map((thread,index) => {
                         return(
                             <div key={index} className="thread">  
-                                <div>posted by: {thread.userName}</div> 
+                                <div>posted by: {thread.userName}</div>
+                                { thread.createdBy === this.props.user._id ?
+                                <button>delete</button> 
+                                :
+                                null
+                                }
                                 <Link to={`/${thread._id}`}>{thread.name}</Link>
                                 <div>{thread.date}</div>
                                 <p>{thread.body}</p>                                

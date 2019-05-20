@@ -110,6 +110,7 @@ class App extends Component {
 
     const MessageBoard = () => (<HomeBoard 
       threads={this.state.threads}
+      loggedIn={this.state.loggedIn}
       user={this.state.user}
       show={this.showNewThreadContainer}
       hide={this.hideNewThreadContainer}
@@ -129,6 +130,11 @@ class App extends Component {
       handleInput={this.handleInput}
       handleDeleteUser={this.handleDeleteUser}
     />)
+
+    const SingleThread = (props) =>(<Thread 
+      user={this.state.user}
+      thread={props}
+    />)
     
     return (
       <Router>
@@ -146,7 +152,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={MessageBoard} />
               <Route exact path="/user-profile" render={Profile} />
-              <Route path="/:id" component={Thread} />
+              <Route path="/:id" render={SingleThread} />
             </Switch>
           </div>
         </div>

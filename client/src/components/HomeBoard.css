@@ -6,7 +6,8 @@
     background: #3b5998;
     width: 100%;
     border: 3px solid black;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 
 }
 .thread {
@@ -17,6 +18,7 @@
 }
 
 .new-thread-button {
+    grid-column-start: 2;
     margin: 2px;
     font-size: 20px;
     height: 40px;
