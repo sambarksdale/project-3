@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import {getThread} from '../ajax.js'
 import './Thread.css'
 import NewPostForm from './NewPostForm.js'
@@ -38,7 +39,12 @@ class Thread extends Component {
         let body = document.getElementById("edit-form").value
         let thread = {...this.state.thread}
         thread.body = body
-        this.setState({thread})
+        this.setState({thread: thread,showEditForm: false},)
+        this.props.handleEditThread(thread)
+    }
+
+    deleteThisThread = () => {
+        this.props.handleDeleteThread(this.props.thread.match.params.id)
     }
 
     render(){
@@ -46,10 +52,9 @@ class Thread extends Component {
             <div>
                 <div className="thread-container">
                     <div className="thread-title-container">
-                        <button id="edit-button" onClick={this.showEditForm}>edit</button> 
                         <div>{this.state.thread.name}</div>  
                         {
-                            this.state.thread.createdBy === this.props.user._id ? <button>edit</button> : null
+                            this.state.thread.createdBy === this.props.user._id ? <button onClick={this.showEditForm}>edit</button> : null
                         }    
                     </div> 
                     <div className="thread-body-container">
@@ -76,6 +81,9 @@ class Thread extends Component {
                     </div>
                     <div className="thread-date-container">
                         <div>{this.state.thread.date}</div>
+                        {
+                            this.state.thread.createdBy === this.props.user._id ? <Link to={'/'} onClick={this.deleteThisThread}>delete</Link> : null
+                        }    
                     </div>
                 </div>
                 <div className="new-post-form-container">

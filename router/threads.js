@@ -11,10 +11,20 @@ router
             })
     })
     .post((req,res) => {
-        console.log(req.body)
+        // console.log(req.body)
         threadApi.newThread(req.body)
             .then(() => {
                 res.status(201).send("posted")
+            })
+    })
+    .put((req,res) => {
+        let id = req.body._id
+        threadApi.getThreadById(id)
+            .then(thread => {
+                threadApi.editThread(thread,req.body)
+                    .then(() => {
+                        res.status(200).send("updated")
+                    })
             })
     })
 
@@ -23,9 +33,18 @@ router
     .post((req,res) => {
         threadApi.getThreadById(req.body._id)
             .then(thread => {
-                console.log(thread)
                 res.json(thread)
             })
+    })
+    .delete((req,res) => {
+        threadApi.deleteThread(req.params.id)
+            .then(() => {
+                threadApi.reurnAllThreads()
+                    .then(threads => {
+                        res.json(threads)
+                    })
+            })
+
     })
 
 module.exports = router;

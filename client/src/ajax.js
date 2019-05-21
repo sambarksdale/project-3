@@ -34,3 +34,13 @@ export function getThread(id){
         .then(thread => thread.data)
 }
 
+export function editThread(threadData){
+    console.log(threadData)
+    return axios.put('/threads',threadData)
+}
+
+export function deleteThread(id){
+    return axios.delete(`/thread/${id}`)
+        .then(threads => threads.data)
+}
+

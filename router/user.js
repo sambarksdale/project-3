@@ -37,8 +37,8 @@ router
     })
 
 router.route('/users/delete/:id').delete((req,res) => {
-    console.log("user delete Route")
-    console.log(req.params.id)
+    // console.log("user delete Route")
+    // console.log(req.params.id)
     userApi.deleteUser(req.params.id)
         .then(() => {
             res.status(202).send("deleted")

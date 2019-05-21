@@ -12,8 +12,18 @@ getThreadById = (id) => {
     return ThreadModel.findById(id)
 }
 
+editThread = (thread,data) => {
+    return ThreadModel.updateOne(thread,data)
+}
+
+deleteThread = (id) => {
+    return ThreadModel.deleteOne({_id: id})
+}
+
 module.exports = {
     reurnAllThreads,
     newThread,
-    getThreadById
+    getThreadById,
+    editThread,
+    deleteThread
 }

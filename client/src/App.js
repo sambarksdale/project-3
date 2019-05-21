@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import {getThreads,createNewUser,userSignInDetails,createThread,editUser,deleteUser} from './ajax.js'
+import {getThreads,createNewUser,userSignInDetails,createThread,editUser,deleteUser,editThread,deleteThread} from './ajax.js'
 import './App.css';
 import HomeBoard from './components/HomeBoard.js'
 import Login from './components/Login.js'
@@ -105,6 +105,23 @@ class App extends Component {
           })
       })
   }
+
+  handleEditThread = (threadData) => {
+    editThread(threadData)
+      .then(() => {
+        getThreads()
+          .then(threads => {
+            this.setState({threads: threads})
+          })
+      })
+  }
+
+  handleDeleteThread = (id) => {
+    deleteThread(id)
+      .then(threads => {
+        this.setState({threads: threads})
+      })
+  }
     
   render(){
 
@@ -135,6 +152,8 @@ class App extends Component {
       threads={this.state.threads}
       user={this.state.user}
       thread={props}
+      handleEditThread={this.handleEditThread}
+      handleDeleteThread={this.handleDeleteThread}
     />)
     
     return (
