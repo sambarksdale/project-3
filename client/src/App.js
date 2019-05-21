@@ -132,6 +132,7 @@ class App extends Component {
     />)
 
     const SingleThread = (props) =>(<Thread 
+      threads={this.state.threads}
       user={this.state.user}
       thread={props}
     />)

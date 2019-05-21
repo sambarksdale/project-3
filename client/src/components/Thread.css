@@ -1,0 +1,16 @@
+.thread-container {
+    border: 3px solid #3b5998;
+}
+
+.thread-title-container{
+    border-bottom: 3px solid #3b5998;
+}
+
+.thread-body-container {
+    border-bottom: 3px solid #3b5998;
+}
+
+p {
+    white-space: pre-line 
+}
+

@@ -28,15 +28,10 @@ class HomeBoard extends Component {
                         return(
                             <div key={index} className="thread">  
                                 <div>posted by: {thread.userName}</div>
-                                { thread.createdBy === this.props.user._id ?
-                                <button>delete</button> 
-                                :
-                                null
-                                }
                                 <Link to={`/${thread._id}`}>{thread.name}</Link>
                                 <div>{thread.date}</div>
-                                <p>{thread.body}</p>                                
-                            </div>  
+                            </div> 
+                             
                         ) 
                     })
                 }
