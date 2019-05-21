@@ -1,6 +1,7 @@
 const express =require('express');
 const router = express.Router();
 const threadApi = require('../api/threadApi.js');
+const replyApi = require('../api/replyApi');
 
 router
     .route('/threads')
@@ -45,6 +46,12 @@ router
                     })
             })
 
+    })
+    .get((req,res) => {
+        replyApi.getRepliesByParentId(req.params.id)
+            .then(replies => {
+                res.json(replies)
+            })
     })
 
 module.exports = router;

@@ -18,6 +18,7 @@ class NewPostForm extends Component {
         newReply.parentId = this.props.parentId
         newReply.body = body
         this.props.handleNewReply(newReply)
+        document.getElementById("reply-body").value = ""
     }
 
     render(){

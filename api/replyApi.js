@@ -14,5 +14,6 @@ getRepliesByParentId = (id) => {
 
 module.exports = {
     newReply,
-    getRepliesByParentId
+    getRepliesByParentId,
+    getAllReplies
 }

@@ -1,20 +1,20 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {getThread,newReply} from '../ajax.js'
+import {getThread,newReply,getRepliesbyParent} from '../ajax.js'
 import './Thread.css'
 import NewPostForm from './NewPostForm.js'
 
 class Thread extends Component {
     
     state = {
-        thread: [{
+        thread: {
             _id: "",
             name: "",
             body: "",
             date: "",
             createdBy: "",
             userName: ""
-        }],
+        },
         showEditForm: false,
         replies: []
     }
@@ -23,7 +23,11 @@ class Thread extends Component {
         let id = {_id: this.props.thread.match.params.id}
         getThread(id)
           .then(thread => {
-            this.setState({thread: thread},)
+            getRepliesbyParent(this.props.thread.match.params.id)
+                .then(replies => {
+                    this.setState({thread: thread, replies: replies},console.log(this.state.replies))
+                })
+            
           })
       }
 
@@ -49,14 +53,20 @@ class Thread extends Component {
     }
 
     handleNewReply = (data) => {
-        console.log("from thread")
-        console.log(data)
         newReply(data)
+            .then(replies => {
+                this.setState({replies: replies}, console.log(this.state.replies))
+            })
     }
 
-    handlegetReplies = () => {
-
+    getReplies = (id) => {
+        getRepliesbyParent(this.props.thread.match.params.id)
+            .then(replies => {
+                this.setState({replies})
+            })
     }
+
+
 
 
 
@@ -98,6 +108,20 @@ class Thread extends Component {
                             this.state.thread.createdBy === this.props.user._id ? <Link to={'/'} onClick={this.deleteThisThread}>delete</Link> : null
                         }    
                     </div>
+                </div>
+                <div>
+                {
+                    this.state.replies.map((replies,index) => {
+                        return(
+                            <div key={index} className="thread">  
+                                <div>posted by: {replies.userName}</div>
+                                <div>{replies.body}</div>
+                                <div>{replies.date}</div>
+                            </div> 
+                             
+                        ) 
+                    })
+                }
                 </div>
                 <div className="new-post-form-container">
                     <NewPostForm user={this.props.user} parentId={this.props.thread.match.params.id} handleNewReply={this.handleNewReply}/>

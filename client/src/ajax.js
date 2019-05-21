@@ -45,12 +45,12 @@ export function deleteThread(id){
 }
 
 export function newReply(data){
-    console.log("from ajax")
-    console.log(data)
     return axios.post('/reply',data)
+        .then(replies => replies.data)
 }
 
-export function getReplies(id){
+export function getRepliesbyParent(id){
     return axios.get(`/thread/${id}`)
+        .then(replies => replies.data)
 }
 

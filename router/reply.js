@@ -5,8 +5,14 @@ const replyApi = require('../api/replyApi');
 router
 .route('/reply')
     .post((req,res) => {
-        console.log(req.body)
-        // replyApi.newReply(req.body)
+        replyApi.newReply(req.body)
+            .then(() => {
+                replyApi.getRepliesByParentId(req.body.parentId)
+                    .then(replies => {
+                        res.json(replies)
+                    })
+                
+            })
 })
 
     
