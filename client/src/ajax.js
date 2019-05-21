@@ -44,3 +44,13 @@ export function deleteThread(id){
         .then(threads => threads.data)
 }
 
+export function newReply(data){
+    console.log("from ajax")
+    console.log(data)
+    return axios.post('/reply',data)
+}
+
+export function getReplies(id){
+    return axios.get(`/thread/${id}`)
+}
+

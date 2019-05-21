@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {getThread} from '../ajax.js'
+import {getThread,newReply} from '../ajax.js'
 import './Thread.css'
 import NewPostForm from './NewPostForm.js'
 
@@ -16,13 +16,14 @@ class Thread extends Component {
             userName: ""
         }],
         showEditForm: false,
+        replies: []
     }
     
     componentDidMount(){
         let id = {_id: this.props.thread.match.params.id}
         getThread(id)
           .then(thread => {
-            this.setState({thread: thread,textarea:thread.body},)
+            this.setState({thread: thread},)
           })
       }
 
@@ -46,6 +47,18 @@ class Thread extends Component {
     deleteThisThread = () => {
         this.props.handleDeleteThread(this.props.thread.match.params.id)
     }
+
+    handleNewReply = (data) => {
+        console.log("from thread")
+        console.log(data)
+        newReply(data)
+    }
+
+    handlegetReplies = () => {
+
+    }
+
+
 
     render(){
         return(
@@ -87,7 +100,7 @@ class Thread extends Component {
                     </div>
                 </div>
                 <div className="new-post-form-container">
-                    {/* <NewPostForm value={this.state.thread.body}/> */}
+                    <NewPostForm user={this.props.user} parentId={this.props.thread.match.params.id} handleNewReply={this.handleNewReply}/>
                 </div>
             </div>
         )
