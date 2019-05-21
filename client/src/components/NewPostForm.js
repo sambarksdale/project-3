@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import './NewPostForm.css'
 
 class NewPostForm extends Component {
     state = {
@@ -23,10 +23,12 @@ class NewPostForm extends Component {
 
     render(){
         return(
-            <div>
+            <div className="new-post-container">
                 <form onSubmit={this.newReply}>
-                    <textarea id="reply-body" rows="10"></textarea>
-                    <input type="submit" value="submit"/>
+                    <textarea className="post-textarea" id="reply-body" rows="10" placeholder="reply"></textarea>
+                    <div>
+                        <input className="submit-button" type="submit" value="submit" />
+                    </div>
                 </form>
             </div>
         )

@@ -1,0 +1,21 @@
+.new-post-container {
+    border: 3px solid black;
+    background: lightgray;
+}
+
+.post-textarea {
+    margin: 5px 0px 5px 5px;
+}
+
+.submit-button {
+    text-align: center;
+    margin: 0px 5px 5px 5px;
+    font-size: 15px;
+    height: 30px;
+    width: 70px;
+    color: White;
+    font-weight: bolder;
+    line-height: 30px;
+    background: #3b5998;
+    border-radius: 5px;
+}

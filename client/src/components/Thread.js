@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {getThread,newReply,getRepliesbyParent} from '../ajax.js'
+import {Link, Route} from 'react-router-dom'
+import {getThread,newReply,getRepliesbyParent,editReply,deleteReply} from '../ajax.js'
 import './Thread.css'
 import NewPostForm from './NewPostForm.js'
+import Reply from './Reply.js'
 
 class Thread extends Component {
     
@@ -16,20 +17,20 @@ class Thread extends Component {
             userName: ""
         },
         showEditForm: false,
-        replies: []
+        replies: [],
     }
     
     componentDidMount(){
         let id = {_id: this.props.thread.match.params.id}
         getThread(id)
-          .then(thread => {
-            getRepliesbyParent(this.props.thread.match.params.id)
-                .then(replies => {
-                    this.setState({thread: thread, replies: replies},console.log(this.state.replies))
-                })
-            
-          })
-      }
+            .then(thread => {
+                getRepliesbyParent(this.props.thread.match.params.id)
+                    .then(replies => {
+                        this.setState({thread: thread, replies: replies},console.log(this.state.replies))
+                    })
+                
+            })
+    }
 
     showEditForm = () => {
         this.setState({showEditForm: true})
@@ -67,21 +68,46 @@ class Thread extends Component {
             })
     }
 
+    handleEditReply = (data) => {
+        editReply(data)
+            .then(replies => {
+                this.setState({replies})
+            })
+    }
 
-
-
+    handleDeleteReply = (id) => {
+        deleteReply(id)
+            .then(replies => {
+                this.setState({replies})
+            })
+    }
 
     render(){
+
+        const Replies = () =>(<Reply
+            reply={this.state.replies}
+            editReply={this.state.editReply}
+            user={this.props.user}
+            handleEditReply={this.handleEditReply}
+            handleDeleteReply={this.handleDeleteReply}
+        />)
+
+        const Post = () =>(<NewPostForm
+            user={this.props.user}
+            parentId={this.props.thread.match.params.id}
+            handleNewReply={this.handleNewReply}
+        />)
+
         return(
             <div>
                 <div className="thread-container">
-                    <div className="thread-title-container">
+                    <div className="thread-title">
                         <div>{this.state.thread.name}</div>  
                         {
-                            this.state.thread.createdBy === this.props.user._id ? <button onClick={this.showEditForm}>edit</button> : null
+                            this.state.thread.createdBy === this.props.user._id ? <div className="edit-button" onClick={this.showEditForm}>edit</div> : null
                         }    
                     </div> 
-                    <div className="thread-body-container">
+                    <div className="thread-body">
                         {
                             this.state.showEditForm ?
                             <form onSubmit={this.handleSubmit}>
@@ -94,38 +120,28 @@ class Thread extends Component {
                                         }
                                    })
                                }
-                               <div>
-                                <button onClick={this.hideEditForm}>cancel</button>
-                                <input type="submit" value="save changes"/>
-                               </div>
+                               <div className="edit-controll">
+                                <div className="edit-button-container">
+                                    <div className="edit-button" onClick={this.hideEditForm}>cancel</div>
+                                    <input className="edit-button" type="submit" value="save"/>
+                                </div>
+                                <Link className="delete-button" to={'/'} onClick={this.deleteThisThread}>delete</Link>
+                                </div>
                             </form>
                         :
                             <p className="thread-body">{this.state.thread.body}</p>
                         }
                     </div>
-                    <div className="thread-date-container">
+                    <div className="thread-footer">
                         <div>{this.state.thread.date}</div>
-                        {
-                            this.state.thread.createdBy === this.props.user._id ? <Link to={'/'} onClick={this.deleteThisThread}>delete</Link> : null
-                        }    
                     </div>
                 </div>
-                <div>
-                {
-                    this.state.replies.map((reply,index) => {
-                        return(
-                            <div key={index} className="thread">  
-                                <div>posted by: {reply.userName}</div>
-                                <div>{reply.body}</div>
-                                <div>{reply.date}</div>
-                            </div> 
-                             
-                        ) 
-                    })
-                }
-                </div>
+
+                {/* <Reply reply={this.state.replies} editReply={this.state.editReply} user={this.props.user} handleEditReply={this.handleEditReply} handleDeleteReply={this.handleDeleteReply}/> */}
+                <Route render={Replies}/>        
                 <div className="new-post-form-container">
-                    <NewPostForm user={this.props.user} parentId={this.props.thread.match.params.id} handleNewReply={this.handleNewReply}/>
+                    {/* <NewPostForm user={this.props.user} parentId={this.props.thread.match.params.id} handleNewReply={this.handleNewReply}/> */}
+                    <Route render={Post}/>
                 </div>
             </div>
         )

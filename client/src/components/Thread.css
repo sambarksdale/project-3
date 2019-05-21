@@ -1,16 +1,33 @@
 .thread-container {
-    border: 3px solid #3b5998;
+    border: 3px solid black;
+    margin-bottom: 5px;
 }
 
-.thread-title-container{
-    border-bottom: 3px solid #3b5998;
+.thread-title{
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: underline;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.thread-body-container {
-    border-bottom: 3px solid #3b5998;
+.thread-body {
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 p {
     white-space: pre-line 
+}
+
+.thread-footer {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+Link {
+    text-decoration: none;
 }
 

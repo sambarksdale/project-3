@@ -1,0 +1,62 @@
+.reply-container {
+    border: 3px solid black;
+    margin-bottom: 5px;
+}
+
+.reply-head {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.posted-by {
+    height: 30px;
+    line-height: 30px;
+    /* margin-left: 5px; */
+}
+.edit-button {
+    text-align: center;
+    margin: 2px;
+    font-size: 15px;
+    height: 30px;
+    width: 70px;
+    color: White;
+    font-weight: bolder;
+    line-height: 30px;
+    background: #3b5998;
+    border-radius: 5px;
+}
+.delete-button {
+    text-align: center;
+    margin: 2px 0px 2px 2px;
+    font-size: 15px;
+    height: 30px;
+    width: 70px;
+    color: White;
+    font-weight: bolder;
+    line-height: 30px;
+    background: rgba(255, 0, 0, 0.774);
+    border-radius: 5px;
+}
+
+.reply-body {
+    margin-left: 5px;
+}
+.edit-controll {
+    width: 90%;
+    display: flex;
+    justify-content: space-between
+}
+
+.edit-button-container {
+    display: flex;
+}
+
+.reply-footer {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+
+

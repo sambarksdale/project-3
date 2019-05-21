@@ -54,3 +54,13 @@ export function getRepliesbyParent(id){
         .then(replies => replies.data)
 }
 
+export function editReply(data){
+    return axios.put('/reply',data)
+        .then(replies => replies.data)
+}
+
+export function deleteReply(id){
+    return axios.delete(`/reply/${id}`)
+        .then(replies => replies.data)
+}
+
