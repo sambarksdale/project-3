@@ -9,6 +9,7 @@ router
         const password = req.body.password
         userApi.returnUserBySignIn(userName,password)
             .then(user => {
+                console.log(user)
                 res.json(user)
             })
     })

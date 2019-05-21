@@ -49,8 +49,13 @@ class App extends Component {
   authenticateUser = (data) => {
     userSignInDetails(data)
       .then(user => {
-        this.setState({loggedIn: true, user: user, userUpdates: user}, function(){
-        })
+        if(user === null){
+          alert("enter valid username and password")
+        } else {
+          this.setState({loggedIn: true, user: user, userUpdates: user}, function(){
+          })
+        }
+        
       })
   }
 

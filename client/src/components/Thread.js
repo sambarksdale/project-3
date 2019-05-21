@@ -55,6 +55,7 @@ class Thread extends Component {
     handleNewReply = (data) => {
         newReply(data)
             .then(replies => {
+                console.log(replies)
                 this.setState({replies: replies}, console.log(this.state.replies))
             })
     }
@@ -111,12 +112,12 @@ class Thread extends Component {
                 </div>
                 <div>
                 {
-                    this.state.replies.map((replies,index) => {
+                    this.state.replies.map((reply,index) => {
                         return(
                             <div key={index} className="thread">  
-                                <div>posted by: {replies.userName}</div>
-                                <div>{replies.body}</div>
-                                <div>{replies.date}</div>
+                                <div>posted by: {reply.userName}</div>
+                                <div>{reply.body}</div>
+                                <div>{reply.date}</div>
                             </div> 
                              
                         ) 

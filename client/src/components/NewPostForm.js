@@ -14,7 +14,7 @@ class NewPostForm extends Component {
         let body = document.getElementById("reply-body").value
         let newReply = {...this.state.reply}
         newReply.createdBy = this.props.user._id
-        newReply.useName = this.props.user.userName
+        newReply.userName = this.props.user.userName
         newReply.parentId = this.props.parentId
         newReply.body = body
         this.props.handleNewReply(newReply)
