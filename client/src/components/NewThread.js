@@ -28,7 +28,6 @@ class NewThread extends Component {
        
         newThread.createdBy= this.props.user._id
         newThread.userName= this.props.user.userName
-        console.log(newThread)
         this.setState({body: newThread.body})
 
         this.props.handleNewThread(newThread);
@@ -41,11 +40,11 @@ class NewThread extends Component {
                     <p>
                         {this.state.body}
                     </p>
-                    <div>
+                    <div className="input-group">
                         <label>Title</label>
                         <input type="text" name="name" onChange={this.handleInput}/>
                     </div>
-                    <div>
+                    <div className="input-group"> 
                         <label>Body</label>
                         <textarea rows="10" name="body" onChange={this.handleInput}></textarea>
                     </div>

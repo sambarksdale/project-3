@@ -43,7 +43,7 @@ class NewAccountForm extends Component {
                     <label>Password</label>
                     <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
                 </div>
-                <input className="submit-button" type="submit" value="Submit" onClick={this.handleSubmit} />
+                <input className="user-submit-button" type="submit" value="Submit" onClick={this.handleSubmit} />
             </form>
         </div> 
         )

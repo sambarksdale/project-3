@@ -1,0 +1,28 @@
+.profile-controll {
+    display: flex;
+    justify-content: center
+}
+.profile-edit-button {
+    text-align: center;
+    margin: 2px;
+    font-size: 20px;
+    height: 40px;
+    width: 70px;
+    color: White;
+    font-weight: bolder;
+    line-height: 40px;
+    background: #3b5998;
+    border-radius: 5px;
+}
+.profile-delete-button {
+    text-align: center;
+    margin: 2px 0px 2px 2px;
+    font-size: 20px;
+    height: 40px;
+    width: 70px;
+    color: White;
+    font-weight: bolder;
+    line-height: 40px;
+    background: rgba(255, 0, 0, 0.774);
+    border-radius: 5px;
+}

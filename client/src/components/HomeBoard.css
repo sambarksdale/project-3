@@ -19,7 +19,7 @@
 
 .new-thread-button {
     grid-column-start: 2;
-    margin: 2px;
+    margin-top: 2px;
     font-size: 20px;
     height: 40px;
     text-decoration: none;

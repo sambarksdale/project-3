@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import './UserProfile.css'
 
 class UserProfile extends Component {
 
@@ -7,9 +8,6 @@ class UserProfile extends Component {
 
         return(
             <div>
-                <div>
-                    <Link to="/" className="edit-profile" onClick={this.props.handleDeleteUser}>Delete User</Link>
-                </div>
                 <form onSubmit={this.props.handleUserUpdate}>
                     <div className="form-group">
                         <label>User Name</label>
@@ -35,7 +33,10 @@ class UserProfile extends Component {
                         <label>Password</label>
                         <input type="text" name="password" defaultValue={this.props.user.password} onChange={this.props.handleInput}/>
                     </div>
-                    <input type="submit" value="Save Changes"/>
+                    <div className="profile-controll">
+                        <input className="profile-edit-button"type="submit" value="Save"/>
+                        <Link to="/" className="profile-delete-button" onClick={this.props.handleDeleteUser}>Delete User</Link>
+                    </div>
                 </form>
             </div>
         )

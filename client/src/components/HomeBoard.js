@@ -9,8 +9,8 @@ class HomeBoard extends Component {
             <div className="message-board">
                 <div className="message-board-head">
                     <div className="search-container">
-                        <input type="text" placeholder="search"/>
-                        <input type="button" value="search"/>
+                        {/* <input type="text" placeholder="search"/>
+                        <input type="button" value="search"/> */}
                     </div>
                     { this.props.loggedIn ?
                     <button className="new-thread-button" onClick={this.props.show}>+ New Thread</button>

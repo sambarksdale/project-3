@@ -21,14 +21,11 @@
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 6;
-  /* border: 3px solid black; */
 }
 
 .main-container {
-  position: relative;
   grid-column-start: 3;
   grid-column-end: end;
   grid-row-start: 3;
   grid-row-end: 10;
-  /* border: 3px solid black; */
 }

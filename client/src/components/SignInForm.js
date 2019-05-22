@@ -40,7 +40,7 @@ class SignInForm extends Component {
                     <label>Password</label>
                     <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
                 </div>
-                <div className="submit-button" onClick={this.handleUserSignIn}>Submit</div>
+                <div className="user-submit-button" onClick={this.handleUserSignIn}>Submit</div>
             </form>
         </div> 
         )
