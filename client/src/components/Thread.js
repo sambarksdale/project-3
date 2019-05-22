@@ -141,7 +141,9 @@ class Thread extends Component {
                 <Route render={Replies}/>        
                 <div className="new-post-form-container">
                     {/* <NewPostForm user={this.props.user} parentId={this.props.thread.match.params.id} handleNewReply={this.handleNewReply}/> */}
-                    <Route render={Post}/>
+                    {
+                        this.props.loggedIn ? <Route render={Post}/> : null
+                    }
                 </div>
             </div>
         )

@@ -159,6 +159,7 @@ class App extends Component {
       thread={props}
       handleEditThread={this.handleEditThread}
       handleDeleteThread={this.handleDeleteThread}
+      loggedIn={this.state.loggedIn}
     />)
     
     return (
