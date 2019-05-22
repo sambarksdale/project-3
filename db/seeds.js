@@ -27,17 +27,17 @@ UserModel.deleteMany()
 ThreadModel.deleteMany()
     .then(() => {
         ThreadModel.create({
-            name: "Is It A Sandwich",
-            body: "what really makes something a sandwich",
+            name: "Is A Hotdog A Sandwich",
+            body: "what's the deal with people that don't think a hotdog is a sandwich",
             date: new Date(),
             createdBy: "5cdd7e41427c48fbc9f2524b",
-            userName: "Bender"
+            userName: "Sam"
         })
     })
     .then(() => {
         ThreadModel.create({
-            name: "Is Cereal Soup",
-            body: "i dpn't think mik makes soup",
+            name: "Hello World",
+            body: "come say hi",
             date: new Date(),
             createdBy: "5cdd7e41427c48fbc9f2524b",
             userName: "Bender"

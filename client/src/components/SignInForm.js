@@ -38,7 +38,7 @@ class SignInForm extends Component {
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="password" onChange={this.handleInput} />
+                    <input type="password" name="password" placeholder="password" onChange={this.handleInput} />
                 </div>
                 <div className="user-submit-button" onClick={this.handleUserSignIn}>Submit</div>
             </form>

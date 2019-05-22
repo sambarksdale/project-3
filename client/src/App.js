@@ -19,7 +19,7 @@ class App extends Component {
       email: "",
       firstName: "",
       lastName: "",
-      image: ""
+      image: "https://imgur.com/SQwNGsa"
     },
     userUpdates: {},
     threads: [],

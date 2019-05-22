@@ -7,6 +7,7 @@ class NewAccountForm extends Component {
             userName: '',
             password: '',
             email: '',
+            image: 'https://imgur.com/SQwNGsa.jpg'
         }
     }
 
