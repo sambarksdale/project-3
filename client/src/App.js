@@ -91,6 +91,9 @@ class App extends Component {
 
   handleDeleteUser = () => {
     deleteUser(this.state.user._id)
+      .then(() => {
+        this.handleLogOut()
+      })
   }
 
   showNewThreadContainer = () => {
