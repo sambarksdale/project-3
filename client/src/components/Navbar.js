@@ -6,7 +6,7 @@ class Navbar extends Component {
     render(){
         return(
             <div className="navbar">
-                <Link to={'/'}><h1>MessageBoard App</h1></Link>
+                <Link to={'/'}><h1>Courier</h1></Link>
                 
             </div>
         )
